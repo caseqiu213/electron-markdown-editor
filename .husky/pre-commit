@@ -1,4 +1,9 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm test
+# Check types
+npm run typecheck-main ||
+(
+  echo 'typecheck-main failed.😐 ';
+  false;
+)
